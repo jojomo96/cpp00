@@ -1,8 +1,9 @@
-NAME = megaphone
+NAME = phonebook
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = $(wildcard *.cpp)
-OBJS = $(SRCS:%.cpp=obj/%.o)
+OBJS = $(patsubst %.cpp,obj/%.o,$(SRCS))
+DEPS = $(patsubst %.cpp,obj/%.d,$(SRCS))
 
 # ANSI color codes
 RED = \033[0;31m
@@ -22,18 +23,20 @@ $(NAME): $(OBJS)
 	@echo "$(GREEN)Build complete!$(NC)"
 	@echo "$(GREEN)==============================$(NC)"
 
+-include $(DEPS)
+
 obj/%.o: %.cpp
 	@mkdir -p obj
 	@echo "$(YELLOW)------------------------------$(NC)"
 	@echo "$(YELLOW)Compiling $<$(NC)"
-	@$(CXX) $(CXXFLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
 	@echo "$(GREEN)[done]$(NC)"
 	@echo "$(YELLOW)------------------------------$(NC)"
 
 clean:
 	@echo "$(RED)==============================$(NC)"
 	@echo "$(RED)Cleaning up...$(NC)"
-	@rm -f $(OBJS)
+	@rm -f $(OBJS) $(DEPS)
 	@rm -rf obj
 	@echo "$(GREEN)Clean complete!$(NC)"
 	@echo "$(GREEN)==============================$(NC)"

@@ -1,61 +1,11 @@
-# Prerequisites
-*.d
+# Ignore everything
+*
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# Allow specific file types in the root directory
+!/*.cpp
+!/*.hpp
+!Makefile
+!/*.h
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-# CMake files
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
-Makefile
-
-# CLion specific files
-.idea/
-*.iml
-*.iws
-*.ipr
-cmake-build-*/
-
-# Other IDE specific files
-.vscode/
-*.code-workspace
-
-# Backup files
-*~
-*.bak
-*.swp
-*.swo
-*.tmp
-
-# Logs
-*.log
-
-*.xml
+# Ensure that the rules apply to the root directory only
+!*/

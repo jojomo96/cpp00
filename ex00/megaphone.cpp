@@ -1,16 +1,21 @@
 # include <iostream>
+# include <cctype>
+# include <string>
 
-int main(int argc, char **argv) {
+int main(const int argc, char **argv) {
+	std::string output;
 	if (argc == 1) {
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		output += "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	} else {
 		for (int i = 1; i < argc; i++) {
 			for (int j = 0; argv[i][j]; j++) {
-				std::cout << static_cast<char>(std::toupper(argv[i][j]));
+				output += static_cast<char>(std::toupper(argv[i][j]));
 			}
-			std::cout << " ";
+			if (i < argc - 1) {
+				output += " ";
+			}
 		}
-		std::cout << std::endl;
 	}
+	std::cout << output << std::endl;
 	return 0;
 }

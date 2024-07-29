@@ -30,3 +30,32 @@
 *.exe
 *.out
 *.app
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# CLion specific files
+.idea/
+*.iml
+*.iws
+*.ipr
+cmake-build-*/
+
+# Other IDE specific files
+.vscode/
+*.code-workspace
+
+# Backup files
+*~
+*.bak
+*.swp
+*.swo
+*.tmp
+
+# Logs
+*.log
+
+*.xml

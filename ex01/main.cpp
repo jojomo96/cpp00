@@ -18,6 +18,10 @@ int main(int argc, char *argv[]) {
 	while (true) {
 		std::cout << BLUE << "Enter command: " << RESET;
 		std::getline(std::cin, input);
+		if (std::cin.eof()) {
+			std::cout << GREEN << "Exiting the PhoneBook. Goodbye!" << RESET << std::endl;
+			break;
+		}
 		if (input == "EXIT") {
 			std::cout << GREEN << "Exiting the PhoneBook. Goodbye!" << RESET << std::endl;
 			break;

@@ -22,10 +22,10 @@ class Contact {
 public:
 	Contact();
 
-	~Contact();
-
 	Contact(const std::string &first_name, const std::string &last_name, const std::string &nickname,
 	        const std::string &phone_number, const std::string &darkest_secret);
+
+	~Contact();
 
 	std::string get_first_name() const;
 

@@ -103,23 +103,23 @@ void PhoneBook::_print_contact_row(int index, const Contact &contact) {
 	const int num_colors = sizeof(colors) / sizeof(colors[0]);
 	const char* color = colors[index % num_colors];
 
-	std::cout << color << std::setw(10) << index << "|";
+	std::cout << color << std::setw(10) << std::right << index << "|";
 
 	std::string first_name = contact.get_first_name();
 	if (first_name.length() > 10) {
 		first_name = first_name.substr(0, 9) + ".";
 	}
-	std::cout << std::setw(10) << first_name << "|";
+	std::cout << std::setw(10) << std::right << first_name << "|";
 
 	std::string last_name = contact.get_last_name();
 	if (last_name.length() > 10) {
 		last_name = last_name.substr(0, 9) + ".";
 	}
-	std::cout << std::setw(10) << last_name << "|";
+	std::cout << std::setw(10) << std::right << last_name << "|";
 
 	std::string nickname = contact.get_nickname();
 	if (nickname.length() > 10) {
 		nickname = nickname.substr(0, 9) + ".";
 	}
-	std::cout << std::setw(10) << nickname << RESET << std::endl;
+	std::cout << std::setw(10) << std::right << nickname << RESET << std::endl;
 }

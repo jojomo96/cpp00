@@ -55,15 +55,14 @@ void Contact::set_darkest_secret(const std::string &darkest_secret) {
 
 void Contact::print_contact() const {
 	std::cout << std::endl;
-	std::cout << "	-------- Contact --------" << std::endl;
+	std::cout << MAGENTA << "\t-------- Contact --------" << RESET << std::endl;
 	std::cout << std::endl;
+	std::cout << CYAN << std::setw(18) << std::left << "\tFirst name: " << RESET << _first_name << std::endl;
+	std::cout << CYAN << std::setw(18) << std::left << "\tLast name: " << RESET << _last_name << std::endl;
+	std::cout << CYAN << std::setw(18) << std::left << "\tNickname: " << RESET << _nickname << std::endl;
+	std::cout << CYAN << std::setw(18) << std::left << "\tPhone number: " << RESET << _phone_number << std::endl;
+	std::cout << CYAN << std::setw(18) << std::left << "\tDarkest secret: " << RESET << _darkest_secret << std::endl;
 	std::cout << std::endl;
-	std::cout << std::setw(18) << std::left << "	First name: " << _first_name << std::endl;
-	std::cout << std::setw(18) << std::left << "	Last name: " << _last_name << std::endl;
-	std::cout << std::setw(18) << std::left << "	Nickname: " << _nickname << std::endl;
-	std::cout << std::setw(18) << std::left << "	Phone number: " << _phone_number << std::endl;
-	std::cout << std::setw(18) << std::left << "	Darkest secret: " << _darkest_secret << std::endl;
-	std::cout << std::endl;
-	std::cout << "	-------------------------" << std::endl;
+	std::cout << MAGENTA << "\t-------------------------" << RESET << std::endl;
 	std::cout << std::endl;
 }

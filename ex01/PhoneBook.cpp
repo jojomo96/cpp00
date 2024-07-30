@@ -1,4 +1,6 @@
 #include "PhoneBook.hpp"
+#include <iostream>
+#include <iomanip>
 
 PhoneBook::PhoneBook() : _contacts_count(0) {
 }
@@ -6,7 +8,7 @@ PhoneBook::PhoneBook() : _contacts_count(0) {
 PhoneBook::~PhoneBook() {
 }
 
-std::string get_non_empty_input(const char * prompt) {
+std::string get_non_empty_input(const char *prompt) {
 	std::string input;
 	while (true) {
 		std::cout << prompt;

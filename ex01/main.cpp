@@ -14,14 +14,10 @@ int main(int argc, char *argv[]) {
 		std::cout << GREEN << "Test data added to PhoneBook" << RESET << std::endl;
 	}
 
-	std::string input;
 	while (true) {
+		std::string input;
 		std::cout << BLUE << "Enter command: " << RESET;
-		std::getline(std::cin, input);
-		if (std::cin.eof()) {
-			std::cout << GREEN << "Exiting the PhoneBook. Goodbye!" << RESET << std::endl;
-			break;
-		}
+		PhoneBook::read_next_line(input);
 		if (input == "EXIT") {
 			std::cout << GREEN << "Exiting the PhoneBook. Goodbye!" << RESET << std::endl;
 			break;

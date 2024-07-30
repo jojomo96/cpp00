@@ -11,6 +11,11 @@ std::string get_non_empty_input(const std::string &prompt) {
 	while (true) {
 		std::cout << prompt;
 		std::getline(std::cin, input);
+		if (std::cin.eof()) {
+			std::cout << std::endl;
+			std::cout << GREEN << "Exiting the PhoneBook. Goodbye!" << RESET << std::endl;
+			exit(0);
+		}
 		if (!input.empty()) {
 			break;
 		}
@@ -30,8 +35,8 @@ void PhoneBook::add_contact() {
 	contact.set_darkest_secret(get_non_empty_input(BLUE "Darkest secret: " RESET));
 
 	if (contact.get_first_name().empty() || contact.get_last_name().empty() ||
-	contact.get_nickname().empty() || contact.get_phone_number().empty() ||
-	contact.get_darkest_secret().empty()) {
+	    contact.get_nickname().empty() || contact.get_phone_number().empty() ||
+	    contact.get_darkest_secret().empty()) {
 		std::cout << RED << "Error: All fields must be filled. Contact not added." << RESET << std::endl;
 		return;
 	}
@@ -62,6 +67,11 @@ void PhoneBook::search_contact() const {
 	std::cout << std::endl;
 	std::cout << CYAN << "Enter index to show contact details: " << RESET;
 	std::getline(std::cin, input);
+	if (std::cin.eof()) {
+		std::cout << std::endl;
+		std::cout << GREEN << "Exiting the PhoneBook. Goodbye!" << RESET << std::endl;
+		exit(0);
+	}
 
 	try {
 		const int index = std::stoi(input);
@@ -89,6 +99,15 @@ void PhoneBook::add_test_contacts() {
 	_contacts_count = MAX_CONTACTS;
 }
 
+void PhoneBook::read_next_line(std::string &input) {
+	std::getline(std::cin, input);
+	if (std::cin.eof()) {
+		std::cout << std::endl;
+		std::cout << GREEN << "Exiting the PhoneBook. Goodbye!" << RESET << std::endl;
+		exit(0);
+	}
+}
+
 void PhoneBook::_print_table_header() {
 	std::cout << YELLOW << "___________________________________________" << RESET << std::endl;
 	std::cout << YELLOW << "     index|first name| last name|  nickname" << RESET << std::endl;
@@ -99,9 +118,9 @@ void PhoneBook::_print_table_footer() {
 }
 
 void PhoneBook::_print_contact_row(int index, const Contact &contact) {
-	const char* colors[] = {CYAN, ORANGE, YELLOW, GREEN, BLUE, INDIGO, VIOLET};
+	const char *colors[] = {CYAN, ORANGE, YELLOW, GREEN, BLUE, INDIGO, VIOLET};
 	const int num_colors = sizeof(colors) / sizeof(colors[0]);
-	const char* color = colors[index % num_colors];
+	const char *color = colors[index % num_colors];
 
 	std::cout << color << std::setw(10) << std::right << index << "|";
 

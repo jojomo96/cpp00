@@ -6,7 +6,7 @@ PhoneBook::PhoneBook() : _contacts_count(0) {
 PhoneBook::~PhoneBook() {
 }
 
-std::string get_non_empty_input(const std::string &prompt) {
+std::string get_non_empty_input(const char * prompt) {
 	std::string input;
 	while (true) {
 		std::cout << prompt;
@@ -93,16 +93,16 @@ void PhoneBook::add_test_contacts() {
 	_contacts[2] = Contact("Alice", "Smith", "asmith", "1234567890", "I am Alice Smith");
 	_contacts[3] = Contact("Bob", "Smith", "bsmith", "0987654321", "I am Bob Smith");
 	_contacts[4] = Contact("Charlie", "Brown", "cbrown", "1234567890", "I am Charlie Brown");
-	_contacts[5] = Contact("Charlie", "Brown", "cbrown", "1234567890", "I am Charlie Brown");
-	_contacts[6] = Contact("Charlie", "Brown", "cbrown", "1234567890", "I am Charlie Brown");
-	_contacts[7] = Contact("Charlie", "Brown", "cbrown", "1234567890", "I am Charlie Brown");
+	_contacts[5] = Contact("Daisy", "Brown", "dbrown", "0987654321", "I am Daisy Brown");
+	_contacts[6] = Contact("Eve", "Johnson", "ejohnson", "1234567890", "I am Eve Johnson");
+	_contacts[7] = Contact("Frank", "Johnson", "fjohnson", "0987654321", "I am Frank Johnson");
 	_contacts_count = MAX_CONTACTS;
 }
 
 void PhoneBook::read_next_line(std::string &input) {
 	std::getline(std::cin, input);
 	if (std::cin.eof()) {
-		std::cout << std::endl;
+		std::cout << "  " << std::endl;
 		std::cout << GREEN << "Exiting the PhoneBook. Goodbye!" << RESET << std::endl;
 		exit(0);
 	}

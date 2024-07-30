@@ -22,8 +22,8 @@ class Contact {
 public:
 	Contact();
 
-	Contact(const std::string &first_name, const std::string &last_name, const std::string &nickname,
-	        const std::string &phone_number, const std::string &darkest_secret);
+	Contact(const char * first_name, const char * last_name, const char * nickname,
+	        const char * phone_number, const char * darkest_secret);
 
 	~Contact();
 

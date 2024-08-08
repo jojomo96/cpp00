@@ -11,9 +11,6 @@ int main(const int argc, char **argv) {
 			for (int j = 0; argv[i][j]; j++) {
 				output += static_cast<char>(std::toupper(argv[i][j]));
 			}
-			if (i < argc - 1) {
-				output += " ";
-			}
 		}
 	}
 	std::cout << output << std::endl;
